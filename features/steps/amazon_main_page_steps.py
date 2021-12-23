@@ -1,17 +1,20 @@
 from selenium.webdriver.common.by import By
 from behave import given,when, then
 
+Mens_watch = (By.CSS_SELECTOR, '#imgTagWrapperId')
 
-@given('Open Amazon Page')
-def open_amazon(context):
-    context.driver.get('https://www.amazon.com/')
 
-@when('Search for table')
+@when('Search for watch')
 def search_amazon(context):
-    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('table')
+    context.driver.find_element(By.ID, 'twotabsearchtextbox').send_keys('watch')
 
-@when('click search icon')
-def click_search_icon(context):
-    context.driver.find_element(By.ID, 'nav-search-submit-button').click()
 
+@when('Click Orders')
+def click_orders(context):
+    context.driver.find_element(By.ID, 'nav-orders').click()
+
+
+@then('Verify watch is in cart')
+def verify_watch_in_cart_present(context):
+    context.driver.find_element()
 
