@@ -6,6 +6,13 @@ from time import sleep
 link = (By.CSS_SELECTOR, "#nav-xshop > a:nth-child(2)")
 link_options = (By.CSS_SELECTOR, 'div._p13n-zg-nav-tab-all_style_zg-tabs__EYPLq ul li')
 
+@given('Open Amazon Bestsellers')
+def open_amazon_bestsellers(context):
+   # context.driver.get('https://www.amazon.com/gp/bestsellers/')
+   # context.driver.refresh()
+   # sleep(1)
+   context.app.bestsellers_page.open()
+
 @when('Click on bestseller link on top menu')
 def click_bestseller_link(context):
     sleep(5)
@@ -39,3 +46,11 @@ def verify_correct_page(context):
         link.click()
         actual_link = link.text
         assert actual_link == expected_link[i], f'Expected {expected_link[i]}, but got {actual_link}'''
+
+
+@given("Open Amazon bestsellers page")
+def step_impl(context):
+    """
+    :type context: behave.runner.Context
+    """
+    raise NotImplementedError(u'STEP: Given Open Amazon bestsellers page')
