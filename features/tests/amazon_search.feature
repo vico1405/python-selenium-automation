@@ -29,3 +29,16 @@ Feature: Test for amazon search
     And Open cart page
     Then Verify cart has 1 item(s)
     And Verify cart has correct product
+
+
+  Scenario: User can select and search for an item in a department
+    Given Open Amazon Page
+    When Select department by alias baby
+    And Input car seat into amazon search
+    And Click search icon
+    Then Verify baby department is selected
+
+  Scenario: User can see new arrival deal
+    Given  Open product page
+    When Hover new arrival
+    Then Verify users see deal
